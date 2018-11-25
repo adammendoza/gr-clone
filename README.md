@@ -1,4 +1,4 @@
-# Good reads like webapp
+# GoodReads like webapp
 
 Web Programming with Python and JavaScript
 
