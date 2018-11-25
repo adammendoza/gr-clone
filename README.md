@@ -1,4 +1,4 @@
-# Project 1
+# Good reads like webapp
 
 Web Programming with Python and JavaScript
 
