@@ -1,0 +1,29 @@
+{% extends "sign_layout.html" %}
+
+{% block title %}
+    Bad Reads Sign Up!
+{% endblock %}
+
+{% block heading %}
+    Sign Up!
+{% endblock %}
+
+{% block body%}
+
+
+    <h4>Passwords do not match</h4>
+    <form action="{{ url_for('check_signup') }}" method="POST">
+        <p>Create a username:</p>
+        <input type="text" name="username" placeholder="username">
+        <p>Create password:</p>
+        <input type="password" name="password1" placeholder="password">
+        <p>Retype password:</p>
+        <input type="password" name="password2" placeholder="password again">
+        <button>Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Log In </a></p>
+
+
+    
+
+{% endblock %}

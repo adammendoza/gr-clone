@@ -1,0 +1,31 @@
+{% extends "search.html" %}
+
+
+        {% block contents %}
+            <h2>
+                {{ book.title }} </br>
+            </h2>
+            <h4>
+                by   {{ book.author }} </br>
+                     {{ book.year }} </br>
+                     {{ book.isbn }}
+
+            </h4>
+            <h3>{{ gr_data }}</h3>
+
+            <form action="{{ url_for('book_page', id = book.id) }}" method="POST">
+                    <input type="text" name="review" placeholder="Leave a review">
+                    <input type="radio" name="options" value="1">
+                    <input type="radio" name="options" value="2">
+                    <input type="radio" name="options" value="3">
+                    <input type="radio" name="options" value="4">
+                    <input type="radio" name="options" value="5">
+
+                    <button>Submit</button>
+            </form>
+
+            {% for review in reviews %}
+            <p>{{ review }}</p>
+
+            {% endfor %}
+        {% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bad Reads</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/main.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <div class="container">
+                       
+            <h1 class="title">BAD READS</h1>
+            <h4 class="username">{% block username %}{% endblock %}</h4>
+            <a href="{{ url_for('login') }}" class="sign-out">Sign Out</a>
+            
+                
+            <form action="{{ url_for('search') }}" method="POST" class="search-group">
+                <div class="search-stack">
+                    <p>Search for a book</p>
+                    <input type="text" name="search_request" placeholder="Title, ISBN, Author...">
+                    <button>Search</button>
+                </div>
+            </form>
+
+            <div class="contents">
+                {% block contents %}{% endblock %}
+            </div>
+        </div>
+    </body>
+
+</html>

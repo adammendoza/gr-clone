@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bad Reads</title>
+
+    </head>
+    <body>
+        <form action="{{ url_for('search') }}" method="POST">
+            <input type="text" name="search_request" placeholder="Search..">
+            <button>Look Up!</button>
+        </form>
+
+        <h2>{{ book }}</h2>
+        <h3>{{ gr_data }}</h3>
+
+        <form action="{{ url_for('book_page', id = book.id) }}" method="POST">
+                <input type="text" name="review" placeholder="Leave a review">
+                <input type="radio" name="options" value="1">
+                <input type="radio" name="options" value="2">
+                <input type="radio" name="options" value="3">
+                <input type="radio" name="options" value="4">
+                <input type="radio" name="options" value="5">
+
+                <button>Submit</button>
+        </form>
+
+
+        <h3>You've already posted a review for this book</h3>
+        
+        {% for review in reviews %}
+        <p>{{ review }}</p>
+        
+        {% endfor %}
+            
+    </body>
+
+</html>

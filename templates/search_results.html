@@ -1,0 +1,11 @@
+{% extends "search.html" %}
+
+
+        {% block contents %}
+            {% for item in items%}
+            <a href="{{ url_for('book_page', id = item.id) }}" class="box">
+                <p class="link-text"> {{ item.title }} by {{ item.author }}, {{ item.year }}</p>
+            </a>
+            {% endfor %}
+        {% endblock %}
+
