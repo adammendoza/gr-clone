@@ -1,4 +1,5 @@
 # GoodReads like webapp
+inpired by Harvard CS50 course work
 
 Web Programming with Python and JavaScript
 
