@@ -1,7 +1,5 @@
 import os
 import json
-
-
 from gr_request import get_gr_info
 from flask import Flask, session, render_template, request
 from flask_session import Session
@@ -29,7 +27,6 @@ def set_session(username):
         session["user_id"] = user.id
     
 
-
 #registration landing page
 @app.route("/")
 @app.route("/register")
@@ -38,7 +35,8 @@ def register():
         return render_template("signup.html")
     else:
         return render_template("search.html")
-        
+
+    
 @app.route("/check_signup", methods=["POST"])
 def check_signup():
     username = request.form.get("username")
@@ -60,11 +58,13 @@ def check_signup():
     set_session(username)
     return render_template("search.html")
 
+
 @app.route("/login")
 def login():
 
     session["user_id"] = None
     return render_template("login.html")
+
 
 @app.route("/check_login", methods=["POST"])
 def check_login():
@@ -96,8 +96,6 @@ def search():
         
     return render_template("search_results.html", items=items)
 
-       
-    
 
 @app.route("/bk_pg/<int:id>", methods=["POST", "GET"])
 def book_page(id):
@@ -119,18 +117,10 @@ def book_page(id):
             reviews = db.execute("SELECT * FROM reviews WHERE isbn=:isbn ORDER BY posted_date DESC", {"isbn": book.isbn}).fetchall()
             return render_template("bk_pg_postfailed.html", book=book, reviews=reviews, gr_data=gr_data)
 
-    
     reviews = db.execute("SELECT * FROM reviews WHERE isbn=:isbn ORDER BY posted_date DESC", {"isbn": book.isbn}).fetchall()
     return render_template("bk_pg.html", book=book, reviews=reviews, gr_data=gr_data)
 
     
-         
-
-
-
-
-
-
 #api routes /api/isbn 
 @app.route("/api/<string:isbn>")
 def getinfo(isbn):
